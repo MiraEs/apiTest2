@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            
+        var httpClient = function() {
+            this.get = function(aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function() {
+                    // Check Error response later
+                    aCallback(anHttpRequest.responseText);
+                }
+
+                anHttpRequest.open("GET", aUrl, true);
+                anHttpRequest.send(null);
+            }
+        }
+        
+        var theurl='http://api.ipinfodb.com/v3/ip-city/?key=9d64fcfdfacc213c7ddf4ef911dfe97b55e4696be3532bf8302876c09sadaad06b&format=json&ip=40.77.167.44';
+        var client = new httpClient();
+        client.get(theurl, function(response) {
+            alert(response);
+        });
+        
+        
+        </script>
+    </head>
+
+    <body>
+        <center> JAVASCRIPT GET REQUEST TEST</center>
+    </body>
+</html>
